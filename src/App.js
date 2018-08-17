@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Navbar from './components/Navbar';
 
 class App extends Component {
   constructor(props) {
@@ -19,12 +20,9 @@ class App extends Component {
   }
 
   render() {
-    const topStories = this.state.topStories.length ? this.state.topStories.map(s => <li>{s}</li>) : <li>Nothing</li>
     return (
-      <div className="App">
-        <ul>
-          { topStories }
-        </ul>
+      <div id="app">
+        <Navbar/>
       </div>
     );
   }
