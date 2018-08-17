@@ -12,22 +12,31 @@
     width: 64px;
 
     img {
-      max-width:100%;
       max-height:100%;
     }
   }
 
   .navbar__content {
+    height: 100%;
     display: flex;
+    margin-left: auto;
 
     li {
       flex: 1;
-      padding: 10px;
       list-style-type: none;
 
       .navbar__link {
-        text-decoration: none;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
         color: $color-text-primary;
+        text-decoration: none;
+
+        &:hover {
+          background-color: $color-primary-dark;
+        }
       }
     }
   }
