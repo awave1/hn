@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './navbar.css';
 
-const NavLink = ({ to, children }) => <Link to={ to }>{ children }</Link>;
+const NavLink = ({ to, children }) => <Link className='navbar__link' to={ to }>{ children }</Link>;
 
 class Navbar extends React.Component {
   render() {
     return(
-      <div className='navbar'>
-        <div className='navbar_brand'>
+      <nav className='navbar'>
+        <div className='navbar__brand'>
           <NavLink to='/'>
-            logo
+            <img src='https://via.placeholder.com/640x640' alt='logo'></img>
           </NavLink>
         </div>
-        <ul>
+        <ul className='navbar__content'>
           <li>
             <NavLink to='/new'>New</NavLink>
           </li>
@@ -20,7 +21,7 @@ class Navbar extends React.Component {
             <NavLink to='/top'>Top</NavLink>
           </li>
         </ul>
-      </div>
+      </nav>
     );
   }
 }
