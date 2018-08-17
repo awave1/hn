@@ -10,17 +10,20 @@ class App extends Component {
   }
 
   async componentWillMount() {
-    const { data: topStories } = await axios.get('https://hacker-news.firebaseio.com/v0/topstories.json');
-    this.setState({ topStories });
+    try {
+      const { data: topStories } = await axios.get('https://hacker-news.firebaseio.com/v0/topstories.json');
+      this.setState({ topStories });
+    } catch (error) {
+
+    }
   }
 
   render() {
+    const topStories = this.state.topStories.length ? this.state.topStories.map(s => <li>{s}</li>) : <li>Nothing</li>
     return (
       <div className="App">
         <ul>
-          {
-            this.state.topStories.map(s => <li>{s}</li>)
-          }
+          { topStories }
         </ul>
       </div>
     );
