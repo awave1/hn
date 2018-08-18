@@ -1,5 +1,6 @@
 import React from 'react';
 import { getTopStories } from '../api/stories';
+import Feed from '../components/Feed/Feed';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -18,11 +19,7 @@ class MainPage extends React.Component {
 
   render() {
     return(
-      <ul>
-        {
-          this.state.stories.map(story => <li key={story.id}>{story.title}</li>)
-        }
-      </ul>
+      <Feed stories={ this.state.stories }/>
     )
   }
 }
