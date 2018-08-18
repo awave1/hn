@@ -77,12 +77,13 @@ class Item {
 
 class Story extends Item {
   constructor(resp) {
-    const { id, by, kids, score, time, title, url } = resp;
+    const { id, by, kids, score, time, title, url, descendants } = resp;
     super(id, 'story', time, by, url);
 
     this.setTitle(title);
     this.setScore(score);
     this.setKids(kids);
+    this.comments = descendants;
   }
 }
 
