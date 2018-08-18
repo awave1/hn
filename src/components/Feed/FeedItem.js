@@ -1,4 +1,5 @@
 import React from 'react';
+import url from 'url';
 import './feedItem.css';
 
 class FeedItem extends React.Component {
@@ -6,8 +7,11 @@ class FeedItem extends React.Component {
     const { story } = this.props;
     return(
       <div className='feed_item'>
-        <a className='feed_item_url' href={ story.url }>
-          <h3 className='feed_item_title'>{ story.title }</h3>
+        <div className='feed_item_score_container'>
+          <span>{ story.score }</span>
+        </div>
+        <a className='feed_item_title' href={ story.url }>
+          { story.title } <small>({ story.host })</small>
         </a>
       </div>
     );

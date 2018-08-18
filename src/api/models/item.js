@@ -1,3 +1,5 @@
+import { parse as urlParse } from 'url';
+
 class Item {
   constructor(id, type, time, by, url) {
     this.id = id;
@@ -5,6 +7,7 @@ class Item {
     this.time = time;
     this.by = by;
     this.url = url;
+    this.host = !!url ? urlParse(this.url).host : '';
 
     this.title = '';
     this.text = '';
