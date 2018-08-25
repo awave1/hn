@@ -1,20 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './feedItem.css';
 
 class FeedItem extends React.Component {
   render() {
-    const { story } = this.props;
+    const { story: { score, title, host, by, since, id, comments, url } } = this.props;
     return(
       <div className='feed_item'>
         <div className='feed_item_score_container'>
-          <span>{ story.score }</span>
+          <span>{score}</span>
         </div>
         <div className='feed_item_container'>
-          <a className='feed_item_title' href={ story.url }>
-            { story.title } <small>({ story.host })</small>
-          </a>
+          <Link className='feed_item_title' href={url}>
+            {title} <small>({host})</small>
+          </Link>
           <div className='feed_item_info_container'>
-            <small>by: { story.by } | { story.since } ago | { story.comments } comments </small>
+            <small>
+              by: {by} | {since} ago | <Link to={`${id}/comments`}>{comments} comments</Link>
+            </small>
           </div>
         </div>
       </div>
