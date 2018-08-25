@@ -1,6 +1,6 @@
 import React from 'react';
 import { getTopStories } from '../api/stories';
-import Feed from '../components/Feed';
+import { Feed } from '../components/Feed';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -13,14 +13,15 @@ class MainPage extends React.Component {
   async componentDidMount() {
     const topStories = await getTopStories();
     this.setState({
-      stories: topStories
+      stories: topStories,
     });
   }
 
   render() {
-    return(
-      <Feed stories={ this.state.stories }/>
-    )
+    const { stories } = this.state;
+    return (
+      <Feed stories={stories} />
+    );
   }
 }
 
