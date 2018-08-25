@@ -14,7 +14,7 @@ class FeedItem extends React.Component {
             { story.title } <small>({ story.host })</small>
           </a>
           <div className='feed_item_info_container'>
-            <small>by: { story.by } | { story.time } | { story.comments } comments </small>
+            <small>by: { story.by } | { story.since } ago | { story.comments } comments </small>
           </div>
         </div>
       </div>
